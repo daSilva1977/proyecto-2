@@ -1,38 +1,34 @@
 const servicios = [
-    { id: 1, nombre: "limpieza de cutis", precio: 1200, img: "limpieza.jpg" },
-    { id: 2, nombre: "masajes", precio: 1800, img: "masajes.jpg" },
-    { id: 3, nombre: "electrodos", precio: 2800, img: "electrodos.jpg" },
-    { id: 4, nombre: "manicura", precio: 1500, img: "manicuria.webp" },
-    { id: 5, nombre: "uñas", precio: 1100, img: "esculpidas.webp" },
-    { id: 6, nombre: "mascarillas", precio: 1900, img: "mascarilla.jpeg" },
-    { id: 7, nombre: "microblanding", precio: 5800, img: "microblanding.png" },
+    { id: 1, nombre: "La revoltoda-Maritimo", precio: 4500, img: "img1.jpg" },
+    { id: 2, nombre: "La Huella-Maritimo", precio: 5800, img: "img2.jpg" },
+    { id: 3, nombre: "La Cabaña-Golf", precio: 4800, img: "img3.jpg" },
+    { id: 4, nombre: "Buena Vista-Golf", precio: 4500, img: "img4.jpg" },
     {
-      id: 8,
-      nombre: "radiofrecuencia",
-      precio: 12800,
-      img: "radiofrecuencia.png",
+      id: 5,
+      nombre: "Bosque-Senderos",
+      precio: 6200,
+      img: "img5.jpg",
     },
     {
-      id: 9,
-      nombre: "micropigmentación",
-      precio: 7800,
-      img: "micropigmentacion.jpeg",
+      id: 6,
+      nombre: "Buena Vida-Deportiva",
+      precio: 5200,
+      img: "img6.jpg",
     },
   ];
-  
   function Servicio(nombre, precio, img) {
     this.id = servicios.length + 1;
     this.nombre = nombre;
     this.precio = parseFloat(precio);
     if (this.img === undefined) {
-      this.img = "https://via.placeholder.com/300";
+      this.img = "https://costaesmeraldaguests.com/";
     } else {
       this.img = img;
     }
   }
   
-  servicios.push(new Servicio("depi", 1200, "img.jpg"));
-  servicios.push(new Servicio("depi", 1200, "img.jpg"));
+  servicios.push(new Servicio("serivico de limpieza", 1900, "img.jpg"));
+  servicios.push(new Servicio("servicio blanqueria", 3200, "img.jpg"));
   
   //funciones de filtrado
   console.log(servicios);
@@ -43,48 +39,25 @@ const servicios = [
     });
     return encontrado;
   }
-  /* let buscar= prompt("Ingresa el nombre del servicio")
-  const servEncontrado = findService(servicios,buscar)
-  console.log(servEncontrado); */
-  
-  //filtrar por precio
-  
-  function filtrarPorMenorPrecio(arr, filtro) {
-    return arr.filter((el) => {
-      return el.precio <= filtro;
-    });
-  }
-  
-  //funcion generica
-  function filtrar(arr, filtro, param) {
-    return arr.filter((el) => {
-      if (param == "precio") {
-        return el[param] <= filtro;
-      }else if(param === "id"){
-        return el[param]== filtro
-      }else{
-        return el[param].includes(filtro)
-  
+    //funcion generica
+    function filtrar(arr, filtro, param) {
+        return arr.filter((el) => {
+          if (param == "precio") {
+            return el[param] <= filtro;
+          }else if(param === "id"){
+            return el[param]== filtro
+          }else{
+            return el[param].includes(filtro)
+      
+          }
+        });
       }
-    });
-  }
-   const porPrecio = filtrar(servicios, 1100, "precio")
+   const porPrecio = filtrar(servicios, 6100, "precio")
   
    const porId= filtrar(servicios, 2, "id" )
   
-   //console.log(porPrecio);
+   console.log(porPrecio);
    console.log(porId);
-   const porNombre= filtrar(servicios, "ma", "nombre")
+   const porNombre= filtrar(servicios, "golf", "nombre")
    console.log(porNombre);
   
-  /* const menorPrecio = filtrarPorMenorPrecio(servicios, 1500);
-  console.log(menorPrecio);
-  const menorP = filtrarPorMenorPrecio(menorPrecio, 1300);
-  console.log(menorP);
-   */
-  const carrito= []
-  
-  carrito.push(findService(servicios, "mani"))
-  carrito.push(findService(servicios, "mani"))
-  carrito.push(findService(servicios, "mani"))
-  console.log(carrito);
